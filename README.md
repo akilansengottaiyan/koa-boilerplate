@@ -1,17 +1,13 @@
 ###### FrameWork used
 [koaJs](https://koajs.com/)
-
 ###### Db used
 Postgresql
-
 ###### Orm used
 Sequelize
-
 ###### Routes
-
-**Authentication route:**  
+ Authentication route
  `/auth/login` `/auth/signup` 
- **Resource url:** 
+ Resource url:
  `/v1/`
 
 ###### Steps :
