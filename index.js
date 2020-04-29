@@ -1,11 +1,14 @@
 import Koa from 'koa'
 import compress from 'koa-compress'
 import mount from 'koa-mount'
+import helmet from 'koa-helmet'
 import bodyParser from 'koa-bodyparser'
 import './init'
 import errorHandling from './middlewares/errorHandling'
 import routes from './router'
+
 const app = new Koa()
+app.use(helmet())
 app.use(compress())
 app.use(errorHandling())
 app.use(bodyParser())

@@ -5,12 +5,18 @@ function errorHandling() {
     try {
       await next()
     } catch (err) {
+      console.log(err)
       if (err instanceof Sequelize.ValidationError) {
         ctx.status = 400
         ctx.body = err.errors[0].message
       } else {
-        ctx.status = err.status
-        ctx.body = err.message
+        if (err.status) {
+          ctx.status = err.status
+          ctx.body = err.body
+        } else {
+          ctx.status = 500
+          ctx.body = 'Internal Server Error'
+        }
       }
     }
   }
