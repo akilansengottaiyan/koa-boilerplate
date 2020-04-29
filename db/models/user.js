@@ -1,4 +1,5 @@
-import {sequelize, Sequelize} from '../index'
+import {sequelize, Sequelize} from '../connectDB'
+
 const definition = {
   id: {
     type: Sequelize.DataTypes.UUID,
@@ -33,6 +34,13 @@ const definition = {
     validate: {notNull: true},
   },
 }
-// console.log(sequelize)
+
 const User = sequelize.define('Users', definition)
+User.associate = (models) => {
+  User.belongsToMany(models.Circle, {
+    through: models.CircleUser,
+    foreignKey: 'userId',
+  })
+}
+
 export default User
