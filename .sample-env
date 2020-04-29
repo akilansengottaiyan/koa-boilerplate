@@ -1,0 +1,6 @@
+PORT=3504
+SECRET_KEY=its a very big secret
+HASH_KEY=keyforpasswordencryption
+DB_HOST=localhost
+DB_NAME=mylocaluniccan
+DB_USERNAME=db_user
